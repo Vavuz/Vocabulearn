@@ -1,8 +1,13 @@
 body {
     background-color: rgb(165, 245, 218);
     text-align: center;
+    overflow: hidden;
 }
 
-content {
-    right: 0;
+.content {
+    padding-top: 11rem;
+}
+
+.add-words {
+    margin-bottom: 1rem;
 }

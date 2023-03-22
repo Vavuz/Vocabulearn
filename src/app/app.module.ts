@@ -10,13 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { MatButtonModule} from '@angular/material/button';
 import { AddWordsComponent } from './add-words/add-words.component';
 import { TestSkillComponent } from './test-skill/test-skill.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MyVocabularyComponent } from './my-vocabulary/my-vocabulary.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddWordsComponent,
-    TestSkillComponent
+    TestSkillComponent,
+    MyVocabularyComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,10 @@ import { TestSkillComponent } from './test-skill/test-skill.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,9 +5,25 @@ body {
 }
 
 .content {
-    padding-top: 11rem;
+    padding-top: 10%;
 }
 
 .add-words {
     margin-bottom: 1rem;
+    min-width: 152px;
+    max-width: 183px;
+    width: 12%;
+}
+
+.my-vocabulary {
+    margin-bottom: 1rem;
+    min-width: 177px;
+    max-width: 213px;
+    width: 14%;
+}
+
+.test-skill {
+    min-width: 201px;
+    max-width: 244px;
+    width: 16%;
 }

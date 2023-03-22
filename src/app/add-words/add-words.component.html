@@ -1,3 +1,25 @@
 <body>
-    <h1>Add a word</h1>
+  <div class="content">
+    <mat-radio-group aria-label="Select an option" class="select-type">
+      <mat-radio-button value="1" checked>Noun / Adjective</mat-radio-button>
+      <mat-radio-button value="2">Verb</mat-radio-button>
+    </mat-radio-group><br><br>
+
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Word</mat-label>
+      <input matInput placeholder="write your word" class="word-input">
+      <mat-icon matSuffix>person_outline</mat-icon>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Sentence</mat-label>
+      <input matInput placeholder="write a sentence" class="sentence-input">
+      <mat-icon matSuffix>speaker_notes</mat-icon>
+    </mat-form-field><br>
+
+    <button mat-fab extended class="submit-word" (click)="addWord()">
+      <mat-icon>playlist_add</mat-icon>
+      Submit word
+    </button>
+  </div>
 </body>

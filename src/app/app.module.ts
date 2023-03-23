@@ -13,7 +13,9 @@ import { TestSkillComponent } from './test-skill/test-skill.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MyVocabularyComponent } from './my-vocabulary/my-vocabulary.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

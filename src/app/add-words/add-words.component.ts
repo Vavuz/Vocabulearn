@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { WordsInfoService } from './words-info.service';
 
 @Component({
@@ -12,22 +13,37 @@ export class AddWordsComponent {
                 name: string,
                 sentences: string[]}[] = [];
   private id: number = 0;
+  public type = "noun-adjective";
 
-  constructor(private wordsInfoService: WordsInfoService) {}
+  constructor(private wordsInfoService: WordsInfoService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.wordsInfoService.words = this.words;
   }
 
   addWord(): void {
-    console.log(this.words)
-    console.log("hey");
-    //this.id += 1;
-    //var type = "ciao";
-    //var name = document.getElementById("word-input");
-    //var sentences = [document.getElementById("sentence-input")];
-    //var word = {this.id, type, name, sentences};
-    this.words.push({id: 3, type: "ciao", name: "miao", sentences: ["gao"]});
+    this.id += 1;
+    let name = (<HTMLInputElement>document.getElementsByClassName("word-input")[0]).value;
+    let sentences = (<HTMLInputElement>document.getElementsByClassName("sentence-input")[0]).value;
+
+    if (this.sentencesCheck(name, sentences)) {
+      this.words.push({id: this.id, type: this.type, name: name, sentences: [sentences]});
+      this.openSnackBar("Word added to your personal dictionary!", "Close");
+      console.log(this.words);    // Checking that the value is stored
+    } else
+      this.openSnackBar("Your sentence doesn't contain the word you wrote!", "Close")
+  }
+
+  sentencesCheck(word: string, sentence: string): boolean {
+    if (sentence.toLowerCase().includes(word.toLowerCase()))
+      return true;
+    return false;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3500
+    });
   }
 
   get words() {

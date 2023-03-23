@@ -1,8 +1,8 @@
 <body>
   <div class="content">
-    <mat-radio-group aria-label="Select an option" class="select-type">
-      <mat-radio-button value="1" checked>Noun / Adjective</mat-radio-button>
-      <mat-radio-button value="2">Verb</mat-radio-button>
+    <mat-radio-group aria-label="Select an option" class="select-type" [(ngModel)]="type">
+      <mat-radio-button value="noun-adjective" checked=>Noun/Adjective</mat-radio-button>
+      <mat-radio-button value="verb">Verb</mat-radio-button>
     </mat-radio-group><br><br>
 
     <mat-form-field appearance="outline" color="primary">

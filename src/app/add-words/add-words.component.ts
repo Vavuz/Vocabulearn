@@ -22,12 +22,13 @@ export class AddWordsComponent {
   }
 
   addWord(): void {
-    this.id += 1;
     let name = (<HTMLInputElement>document.getElementsByClassName("word-input")[0]).value;
     let sentences = (<HTMLInputElement>document.getElementsByClassName("sentence-input")[0]).value;
 
     if (this.sentencesCheck(name, sentences)) {
-      this.words.push({id: this.id, type: this.type, name: name, sentences: [sentences]});
+      this.id += 1;
+      let word = {id: this.id, type: this.type, name: name, sentences: [sentences.replace(name, "____")]}
+      this.words.push(word);
       this.openSnackBar("Word added to your personal dictionary!", "Close");
       console.log(this.words);    // Checking that the value is stored
     } else
@@ -35,7 +36,7 @@ export class AddWordsComponent {
   }
 
   sentencesCheck(word: string, sentence: string): boolean {
-    if (sentence.toLowerCase().includes(word.toLowerCase()))
+    if (sentence.toLowerCase().indexOf(word.toLowerCase()) !== -1)
       return true;
     return false;
   }

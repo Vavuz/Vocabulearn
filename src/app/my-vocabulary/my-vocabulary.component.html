@@ -1,3 +1,9 @@
 <body>
-    <h1>My vocabulary</h1>
+    <div class="content">
+        <mat-list *ngFor="let word of words; last as last">
+            <p matListItemTitle>Word: {{word.name}}</p>
+            <p matListItemLine>Sentece: {{word.sentences[0]}}</p>
+            <mat-divider *ngIf="!last"></mat-divider>
+        </mat-list>
+    </div>
 </body>

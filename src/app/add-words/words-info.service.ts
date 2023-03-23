@@ -4,10 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WordsInfoService {
-  public words: {id: number,
+  private _words: {id: number,
                   type: string,
                   name: string,
                   sentences: string[]}[] = [];
 
   constructor() { }
+
+  get words() {
+    return this._words;
+  }
+
+  set words(words) {
+    this._words = words;
+  }
 }

@@ -8,18 +8,10 @@ import { WordsInfoService } from './words-info.service';
   styleUrls: ['./add-words.component.scss']
 })
 export class AddWordsComponent {
-  private _words: {id: number,
-                type: string,
-                name: string,
-                sentences: string[]}[] = [];
   private id: number = 0;
   public type = "noun-adjective";
 
   constructor(private wordsInfoService: WordsInfoService, private snackBar: MatSnackBar) {}
-
-  ngOnInit(): void {
-    this.wordsInfoService.words = this.words;
-  }
 
   addWord(): void {
     let name = (<HTMLInputElement>document.getElementsByClassName("word-input")[0]).value;
@@ -28,9 +20,9 @@ export class AddWordsComponent {
     if (this.sentencesCheck(name, sentences)) {
       this.id += 1;
       let word = {id: this.id, type: this.type, name: name, sentences: [sentences.replace(name, "____")]}
-      this.words.push(word);
+      this.wordsInfoService.words.push(word);
       this.openSnackBar("Word added to your personal dictionary!", "Close");
-      console.log(this.words);    // Checking that the value is stored
+      console.log(this.wordsInfoService.words);    // Checking that the value is stored
     } else
       this.openSnackBar("Your sentence doesn't contain the word you wrote!", "Close")
   }
@@ -45,13 +37,5 @@ export class AddWordsComponent {
     this.snackBar.open(message, action, {
       duration: 3500
     });
-  }
-
-  get words() {
-    return this._words;
-  }
-
-  set words(words) {
-    this._words = words;
   }
 }

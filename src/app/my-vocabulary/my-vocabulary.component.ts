@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WordsInfoService } from '../add-words/words-info.service';
+import { EntriesInfoService } from '../add-words/entries-info.service';
 
 @Component({
   selector: 'app-my-vocabulary',
@@ -7,15 +7,16 @@ import { WordsInfoService } from '../add-words/words-info.service';
   styleUrls: ['./my-vocabulary.component.scss']
 })
 export class MyVocabularyComponent {
-  public words: {id: number,
+  public entries: {id: number,
     type: string,
     name: string,
-    sentences: string[]}[] = [];
+    meaning: string,
+    sentence: string}[] = [];
 
-  constructor(private wordsInfoService: WordsInfoService) {}
+  constructor(private entriesInfoService: EntriesInfoService) {}
 
   ngOnInit(): void {
-    this.words = this.wordsInfoService.words;
-    console.log("Ecco qua bro: ", this.words)
+    this.entries = this.entriesInfoService.entries;
+    console.log("Ecco qua bro: ", this.entries)
   }
 }

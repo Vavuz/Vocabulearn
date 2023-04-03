@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSnackBarModule,
     FormsModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

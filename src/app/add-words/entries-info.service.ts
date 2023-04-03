@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,6 +12,10 @@ export class EntriesInfoService {
                   sentence: string}[] = [];
 
   constructor() { }
+
+  add(entry: {id: number, type: string, name: string, meaning: string, sentence: string}): void {
+    this._entries.push(entry);
+  }
 
   get entries() {
     return this._entries;

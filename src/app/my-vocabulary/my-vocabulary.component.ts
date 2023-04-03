@@ -17,6 +17,5 @@ export class MyVocabularyComponent {
 
   ngOnInit(): void {
     this.entries = this.entriesInfoService.entries;
-    console.log("Ecco qua bro: ", this.entries)
   }
 }

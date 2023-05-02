@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EntriesInfoService } from '../add-words/entries-info.service';
+import { Entry } from '../entry';
 
 @Component({
   selector: 'app-my-vocabulary',
@@ -7,11 +8,7 @@ import { EntriesInfoService } from '../add-words/entries-info.service';
   styleUrls: ['./my-vocabulary.component.scss']
 })
 export class MyVocabularyComponent {
-  public entries: {id: number,
-    type: string,
-    name: string,
-    meaning: string,
-    sentence: string}[] = [];
+  public entries: Entry[] = [];
 
   constructor(private entriesInfoService: EntriesInfoService) {}
 

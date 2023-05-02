@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EntriesInfoService } from './entries-info.service';
+import { Entry } from '../entry';
 
 @Component({
   selector: 'app-add-words',
@@ -9,10 +9,9 @@ import { EntriesInfoService } from './entries-info.service';
   styleUrls: ['./add-words.component.scss']
 })
 export class AddWordsComponent {
-  private id: number = 0;
   public type = "noun-adjective";
 
-  constructor(private entriesInfoService: EntriesInfoService, private snackBar: MatSnackBar, private httpClient: HttpClient) {}
+  constructor(private entriesInfoService: EntriesInfoService, private snackBar: MatSnackBar) {}
 
   addWord(): void {
     let name = (<HTMLInputElement>document.getElementsByClassName("word-input")[0]).value;
@@ -20,12 +19,7 @@ export class AddWordsComponent {
     let sentence = (<HTMLInputElement>document.getElementsByClassName("sentence-input")[0]).value;
 
     if (this.sentencesCheck(name, sentence)) {
-      this.id += 1;
-      let entry = {id: this.id, type: this.type, name: name, meaning: meaning, sentence: sentence}    //.replace(name, "____")
-      this.httpClient.post(
-        "https://vocabulearn-30d3e-default-rtdb.europe-west1.firebasedatabase.app/entries.json",
-        entry
-      ).subscribe();
+      let entry = new Entry(this.type, name, meaning, sentence);    //.replace(name, "____")
       this.entriesInfoService.add(entry);
       this.openSnackBar("Word added to your personal dictionary!", "Close");
     }

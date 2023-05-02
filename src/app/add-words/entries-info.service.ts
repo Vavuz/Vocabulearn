@@ -1,19 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Entry } from '../entry';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntriesInfoService {
-  private _entries: {id: number,
-                  type: string,
-                  name: string,
-                  meaning: string,
-                  sentence: string}[] = [];
+  private _entries: Entry[] = [];
 
   constructor() { }
 
-  add(entry: {id: number, type: string, name: string, meaning: string, sentence: string}): void {
+  add(entry: Entry): void {
     this._entries.push(entry);
   }
 

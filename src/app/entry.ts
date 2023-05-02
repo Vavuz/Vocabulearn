@@ -1,12 +1,10 @@
-class Entry {
-    id: number;
+export class Entry {
     type: string;
     name: string;
     meaning: string;
     sentence: string;
 
-    constructor(id: number, type: string, name: string, meaning: string, sentence: string) {
-        this.id = id;
+    constructor(type: string, name: string, meaning: string, sentence: string) {
         this.type = type;
         this.name = name;
         this.meaning = meaning;
